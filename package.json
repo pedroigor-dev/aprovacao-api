@@ -11,8 +11,10 @@
     "start": "node --env-file-if-exists=.env dist/main.js",
     "dev": "node --env-file-if-exists=.env --watch dist/main.js",
     "test": "npm run build && node --test test/*.test.cjs",
-    "format": "prettier --write src test",
-    "format:check": "prettier --check src test"
+    "format": "prettier --write src test scripts",
+    "format:check": "prettier --check src test scripts",
+    "setup": "node scripts/setup.cjs",
+    "demo": "node --env-file=.env scripts/demo.cjs"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.0",
