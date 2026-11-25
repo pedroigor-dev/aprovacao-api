@@ -1,0 +1,36 @@
+{
+  "id": "5a726346-5ab7-49a9-a989-66392d58e330",
+  "tenant": "demo-40c8c4c9-77ca-4e19-bb2b-bfdf12c28f75",
+  "owner": "8fd415fd-337f-4512-96c8-4364a69b7d80",
+  "description": "Passagem para visita ao cliente",
+  "amount_cents": 15000,
+  "state": "paid",
+  "version": 3,
+  "currency": "BRL",
+  "audit": [
+    {
+      "actor": "8fd415fd-337f-4512-96c8-4364a69b7d80",
+      "action": "created",
+      "at": 1795565310082,
+      "version": 0
+    },
+    {
+      "actor": "8fd415fd-337f-4512-96c8-4364a69b7d80",
+      "action": "submitted",
+      "at": 1795565310086,
+      "version": 1
+    },
+    {
+      "actor": "db96d472-8090-48b5-a8d1-b155e85c3545",
+      "action": "approved",
+      "at": 1795565310091,
+      "version": 2
+    },
+    {
+      "actor": "2dc2266a-d5d6-4147-98e7-22941daa3503",
+      "action": "payment_recorded",
+      "at": 1795565310094,
+      "version": 3
+    }
+  ]
+}

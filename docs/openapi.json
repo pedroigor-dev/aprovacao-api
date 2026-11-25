@@ -1,0 +1,430 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "HealthController_check",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Health"
+        ]
+      }
+    },
+    "/expenses": {
+      "post": {
+        "operationId": "ApprovalsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateExpense"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Despesas"
+        ]
+      },
+      "get": {
+        "operationId": "ApprovalsController_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Despesas"
+        ]
+      }
+    },
+    "/expenses/{id}": {
+      "get": {
+        "operationId": "ApprovalsController_get",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Despesas"
+        ]
+      }
+    },
+    "/expenses/{id}/submit": {
+      "post": {
+        "operationId": "ApprovalsController_submit",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VersionCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Despesas"
+        ]
+      }
+    },
+    "/expenses/{id}/approve": {
+      "post": {
+        "operationId": "ApprovalsController_approve",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VersionCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Despesas"
+        ]
+      }
+    },
+    "/expenses/{id}/reject": {
+      "post": {
+        "operationId": "ApprovalsController_reject",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VersionCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Despesas"
+        ]
+      }
+    },
+    "/expenses/{id}/pay": {
+      "post": {
+        "operationId": "ApprovalsController_pay",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VersionCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Despesas"
+        ]
+      }
+    },
+    "/identity/users": {
+      "post": {
+        "operationId": "IdentityController_provision",
+        "parameters": [
+          {
+            "name": "X-Bootstrap-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProvisionUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bootstrap": []
+          }
+        ],
+        "tags": [
+          "Identidade"
+        ]
+      }
+    },
+    "/identity/login": {
+      "post": {
+        "operationId": "IdentityController_login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Identidade"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "aprovacao-api",
+    "description": "",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "api-key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key"
+      },
+      "bootstrap": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Bootstrap-Key"
+      },
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "CreateExpense": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "example": "Passagem para visita ao cliente"
+          },
+          "amountCents": {
+            "type": "number",
+            "example": 15000,
+            "description": "Valor em centavos de BRL"
+          }
+        },
+        "required": [
+          "description",
+          "amountCents"
+        ]
+      },
+      "VersionCommand": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "number",
+            "example": 0
+          }
+        },
+        "required": [
+          "version"
+        ]
+      },
+      "ProvisionUser": {
+        "type": "object",
+        "properties": {
+          "tenant": {
+            "type": "string",
+            "example": "empresa-a"
+          },
+          "email": {
+            "type": "string",
+            "example": "ana@example.com"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 12,
+            "example": "Senha-local-segura-123!"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "requester",
+              "approver",
+              "finance",
+              "auditor"
+            ]
+          }
+        },
+        "required": [
+          "tenant",
+          "email",
+          "password",
+          "role"
+        ]
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "tenant": {
+            "type": "string",
+            "example": "empresa-a"
+          },
+          "email": {
+            "type": "string",
+            "example": "ana@example.com"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 12,
+            "example": "Senha-local-segura-123!"
+          }
+        },
+        "required": [
+          "tenant",
+          "email",
+          "password"
+        ]
+      }
+    }
+  }
+}
