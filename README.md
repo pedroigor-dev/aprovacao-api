@@ -1,26 +1,36 @@
 # Aprovação API
 
+Despesas multiempresa com permissões e trilha de auditoria.
+
+![NestJS 11](https://img.shields.io/badge/NestJS-11-ea2845?logo=nestjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
+![Node.js 24](https://img.shields.io/badge/Node.js-24-43853d?logo=nodedotjs&logoColor=white)
+[![CI](https://github.com/pedroigor-dev/aprovacao-api/actions/workflows/ci.yml/badge.svg)](https://github.com/pedroigor-dev/aprovacao-api/actions/workflows/ci.yml)
+
+[Executar localmente](#executar-localmente) · [Fluxo](#fluxo-principal) · [Estrutura](#estrutura-do-código) · [OpenAPI](docs/openapi.json)
+
 Fluxo de despesas corporativas com NestJS, JWT e isolamento entre empresas. O foco é impedir que uma pessoa aprove sua própria despesa, enxergue dados de outro tenant ou registre a mesma liquidação duas vezes.
 
-```mermaid
-stateDiagram-v2
-  [*] --> draft: solicitante cria
-  draft --> submitted: proprietário envia
-  submitted --> approved: aprovador independente
-  submitted --> rejected: aprovador independente
-  approved --> paid: financeiro registra
-  rejected --> [*]
-  paid --> [*]
-```
+| Interface          | Persistência                | Verificação                       |
+| ------------------ | --------------------------- | --------------------------------- |
+| API REST e Swagger | SQLite com WAL e transações | 9 testes HTTP + TypeScript strict |
+
+## Fluxo principal
+
+![Fluxograma de Aprovação API](docs/diagrams/flow.svg)
+
+[Editar no Excalidraw](docs/diagrams/flow.excalidraw) · [Abrir SVG](docs/diagrams/flow.svg) · [Versão PNG](docs/diagrams/flow.png)
+
+Para editar, baixe o arquivo `.excalidraw` e abra-o em [excalidraw.com](https://excalidraw.com).
 
 ## Regras verificáveis
 
-| Papel | Permissões |
-|---|---|
-| requester | Criar, consultar e enviar as próprias despesas |
-| approver | Consultar despesas da empresa e aprovar/rejeitar solicitações de outra pessoa |
-| finance | Consultar despesas da empresa e registrar liquidação de despesa aprovada |
-| auditor | Consultar despesas e trilha da empresa |
+| Papel     | Permissões                                                                    |
+| --------- | ----------------------------------------------------------------------------- |
+| requester | Criar, consultar e enviar as próprias despesas                                |
+| approver  | Consultar despesas da empresa e aprovar/rejeitar solicitações de outra pessoa |
+| finance   | Consultar despesas da empresa e registrar liquidação de despesa aprovada      |
+| auditor   | Consultar despesas e trilha da empresa                                        |
 
 O tenant e o papel são recuperados da identidade autenticada. O corpo da despesa não aceita tenant, proprietário, estado ou papel. Solicitações fora da empresa ou pertencentes a outro solicitante retornam 404.
 
@@ -72,17 +82,17 @@ O login limita dez tentativas por IP por minuto. O armazenamento do limitador é
 
 ## Endpoints
 
-| Método | Rota | Entrada |
-|---|---|---|
-| POST | /identity/users | tenant, email, password, role |
-| POST | /identity/login | tenant, email, password |
-| POST | /expenses | description, amountCents |
-| GET | /expenses | Até 100 registros acessíveis |
-| GET | /expenses/:id | Despesa e auditoria |
-| POST | /expenses/:id/submit | version |
-| POST | /expenses/:id/approve | version |
-| POST | /expenses/:id/reject | version |
-| POST | /expenses/:id/pay | version + Idempotency-Key |
+| Método | Rota                  | Entrada                       |
+| ------ | --------------------- | ----------------------------- |
+| POST   | /identity/users       | tenant, email, password, role |
+| POST   | /identity/login       | tenant, email, password       |
+| POST   | /expenses             | description, amountCents      |
+| GET    | /expenses             | Até 100 registros acessíveis  |
+| GET    | /expenses/:id         | Despesa e auditoria           |
+| POST   | /expenses/:id/submit  | version                       |
+| POST   | /expenses/:id/approve | version                       |
+| POST   | /expenses/:id/reject  | version                       |
+| POST   | /expenses/:id/pay     | version + Idempotency-Key     |
 
 ## Registro financeiro
 
@@ -98,7 +108,42 @@ Nove cenários cobrem cadastro administrativo e validação, tokens inválidos/e
 
 SQLite mantém a execução simples e as alterações transacionais. As listas retornam no máximo 100 registros, sem paginação por cursor. Não há recuperação de senha, SSO, MFA, edição de identidade, upload de comprovantes ou integração bancária. Para ampliar o sistema, esses recursos precisam de requisitos próprios e novas verificações.
 
-`src/identity.ts` reúne autenticação, provisionamento e guard; `src/approvals.ts` concentra os estados e a autorização do domínio. `src/database.ts` mantém a conexão local. As credenciais de bootstrap têm privilégio sobre todas as empresas e devem ficar restritas à operação administrativa.
+As credenciais de bootstrap têm privilégio sobre todas as empresas e devem ficar restritas à operação administrativa.
+
+## Estrutura do código
+
+```text
+src/
+  app.ts                     Bootstrap, validação global e Swagger
+  app.module.ts              Composição dos módulos
+  health/
+    health.controller.ts
+  database/
+    database.module.ts
+    database.service.ts      Conexão e transações SQLite
+  approvals/
+    approvals.module.ts
+    approvals.controller.ts   Entrada HTTP e delegação
+    approvals.dto.ts          Contratos e validação
+    approvals.service.ts      Regras e fronteiras transacionais
+    approvals.schema.ts       Definição das tabelas e índices
+    approvals.types.ts        Tipos internos
+  identity/
+    identity.module.ts
+    identity.controller.ts
+    identity.dto.ts
+    identity.service.ts       Login e provisionamento
+    identity.schema.ts
+    identity.types.ts
+    jwt.guard.ts
+test/                        Testes HTTP com banco temporário
+scripts/                     Configuração e demonstração
+docs/                        Contrato, exemplos e diagramas
+```
+
+Controllers recebem HTTP e delegam ao serviço. DTOs validam os dados antes do domínio. Cada módulo importa o módulo de banco e declara seus próprios providers. As regras e o SQL transacional permanecem no serviço de aplicação para tornar a atomicidade explícita, sem uma camada de repositório que apenas repetiria chamadas.
+
+A formatação é verificada com Prettier. O compilador usa `strict`, `noUnusedLocals` e `noUnusedParameters`. O workflow de CI instala as dependências pelo lockfile, verifica a formatação e executa os testes.
 
 Projeto de portfólio de Pedro Igor.
 

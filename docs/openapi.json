@@ -322,11 +322,6 @@
   "servers": [],
   "components": {
     "securitySchemes": {
-      "api-key": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-Api-Key"
-      },
       "bootstrap": {
         "type": "apiKey",
         "in": "header",

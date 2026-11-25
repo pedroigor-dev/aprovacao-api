@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1080" viewBox="0 0 1320 1080" role="img" aria-labelledby="title desc">
+<title id="title">Aprovação de despesas</title><desc id="desc">JWT, isolamento por empresa e segregação de funções</desc>
+<defs><marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="#526079" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect width="1320" height="1080" rx="20" fill="#fff"/>
+<g font-family="Segoe UI, Arial, sans-serif" fill="#243047">
+<text x="52" y="63" font-size="31" font-weight="600" text-anchor="start" fill="#243047">
+<tspan x="52" dy="0">Aprovação de despesas</tspan>
+</text>
+<text x="52" y="96" font-size="17" font-weight="400" text-anchor="start" fill="#63718a">
+<tspan x="52" dy="0">JWT, isolamento por empresa e segregação de funções</tspan>
+</text>
+<path d="M 340 187 L 470 187" fill="none" stroke="#526079" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 740 187 L 920 187" fill="none" stroke="#526079" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 1060 229 L 1060 345" fill="none" stroke="#526079" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 1060 435 L 1060 535" fill="none" stroke="#526079" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 940 600 L 740 600" fill="none" stroke="#526079" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="823" y="563" width="41" height="25" rx="4" fill="white"/>
+<text x="830" y="581" font-size="16" font-weight="400" text-anchor="start" fill="#53617a">
+<tspan x="830" dy="0">não</tspan>
+</text>
+<path d="M 1060 665 L 1060 760" fill="none" stroke="#526079" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1073" y="700" width="41" height="25" rx="4" fill="white"/>
+<text x="1080" y="718" font-size="16" font-weight="400" text-anchor="start" fill="#53617a">
+<tspan x="1080" dy="0">sim</tspan>
+</text>
+<path d="M 920 800 L 740 800" fill="none" stroke="#526079" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 490 800 L 340 800" fill="none" stroke="#526079" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 200 229 L 200 345" fill="none" stroke="#526079" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 70 145 Q 200.0 144.86 330 145 Q 340 145 340 155 L 339.86 219 Q 340 229 330 229 L 70 229.54 Q 60 229 60 219 L 59.35 155 Q 60 145 70 145 Z" fill="#eee8ff" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 70 145 Q 200.0 144.86 330 145 Q 340 145 340 155 L 339.86 219 Q 340 229 330 229 L 70 229.54 Q 60 229 60 219 L 59.35 155 Q 60 145 70 145 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="200.0" y="179.7" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="200.0" dy="0">JWT validado</tspan>
+<tspan x="200.0" dy="24.3">Tenant e papel do banco</tspan>
+</text>
+<path d="M 480 145 Q 605.0 145.57 730 145 Q 740 145 740 155 L 739.58 219 Q 740 229 730 229 L 480 228.57 Q 470 229 470 219 L 469.88 155 Q 470 145 480 145 Z" fill="#e7f1ff" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 480 145 Q 605.0 145.57 730 145 Q 740 145 740 155 L 739.58 219 Q 740 229 730 229 L 480 228.57 Q 470 229 470 219 L 469.88 155 Q 470 145 480 145 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="605.0" y="179.7" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="605.0" dy="0">Solicitante cria</tspan>
+<tspan x="605.0" dy="24.3">draft</tspan>
+</text>
+<path d="M 930 145 Q 1060.0 145.66 1190 145 Q 1200 145 1200 155 L 1199.81 219 Q 1200 229 1190 229 L 930 228.63 Q 920 229 920 219 L 920.01 155 Q 920 145 930 145 Z" fill="#e7f1ff" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 930 145 Q 1060.0 145.66 1190 145 Q 1200 145 1200 155 L 1199.81 219 Q 1200 229 1190 229 L 930 228.63 Q 920 229 920 219 L 920.01 155 Q 920 145 930 145 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="1060.0" y="179.7" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="1060.0" dy="0">Proprietário envia</tspan>
+<tspan x="1060.0" dy="24.3">submitted</tspan>
+</text>
+<path d="M 930 345 Q 1060.0 345.51 1190 345 Q 1200 345 1200 355 L 1200.16 425 Q 1200 435 1190 435 L 930 434.8 Q 920 435 920 425 L 920.52 355 Q 920 345 930 345 Z" fill="#e7f1ff" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 930 345 Q 1060.0 345.51 1190 345 Q 1200 345 1200 355 L 1200.16 425 Q 1200 435 1190 435 L 930 434.8 Q 920 435 920 425 L 920.52 355 Q 920 345 930 345 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="1060.0" y="382.7" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="1060.0" dy="0">Aprovador independente</tspan>
+<tspan x="1060.0" dy="24.3">Versão atual da despesa</tspan>
+</text>
+<path d="M 1060.0 535 L 1180 600.0 L 1060.0 665 L 940 600.0 Z" fill="#fff1ce" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 1060.0 535 L 1180 600.0 L 1060.0 665 L 940 600.0 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="1060.0" y="604.85" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="1060.0" dy="0">Aprovar?</tspan>
+</text>
+<path d="M 500 560 Q 615.0 559.91 730 560 Q 740 560 740 570 L 740.26 630 Q 740 640 730 640 L 500 639.34 Q 490 640 490 630 L 490.05 570 Q 490 560 500 560 Z" fill="#ffe5e5" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 500 560 Q 615.0 559.91 730 560 Q 740 560 740 570 L 740.26 630 Q 740 640 730 640 L 500 639.34 Q 490 640 490 630 L 490.05 570 Q 490 560 500 560 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="615.0" y="592.7" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="615.0" dy="0">rejected</tspan>
+<tspan x="615.0" dy="24.3">Estado terminal</tspan>
+</text>
+<path d="M 930 760 Q 1060.0 760.08 1190 760 Q 1200 760 1200 770 L 1199.33 830 Q 1200 840 1190 840 L 930 839.63 Q 920 840 920 830 L 920.28 770 Q 920 760 930 760 Z" fill="#ddf5e6" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 930 760 Q 1060.0 760.08 1190 760 Q 1200 760 1200 770 L 1199.33 830 Q 1200 840 1190 840 L 930 839.63 Q 920 840 920 830 L 920.28 770 Q 920 760 930 760 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="1060.0" y="792.7" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="1060.0" dy="0">approved</tspan>
+<tspan x="1060.0" dy="24.3">Auditoria na transação</tspan>
+</text>
+<path d="M 500 760 Q 615.0 759.55 730 760 Q 740 760 740 770 L 739.89 830 Q 740 840 730 840 L 500 839.84 Q 490 840 490 830 L 490.31 770 Q 490 760 500 760 Z" fill="#e7f1ff" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 500 760 Q 615.0 759.55 730 760 Q 740 760 740 770 L 739.89 830 Q 740 840 730 840 L 500 839.84 Q 490 840 490 830 L 490.31 770 Q 490 760 500 760 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="615.0" y="792.7" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="615.0" dy="0">Financeiro + chave</tspan>
+<tspan x="615.0" dy="24.3">Versão atual</tspan>
+</text>
+<path d="M 70 760 Q 200.0 760.15 330 760 Q 340 760 340 770 L 340.47 830 Q 340 840 330 840 L 70 840.22 Q 60 840 60 830 L 59.61 770 Q 60 760 70 760 Z" fill="#ddf5e6" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 70 760 Q 200.0 760.15 330 760 Q 340 760 340 770 L 340.47 830 Q 340 840 330 840 L 70 840.22 Q 60 840 60 830 L 59.61 770 Q 60 760 70 760 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="200.0" y="792.7" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="200.0" dy="0">paid</tspan>
+<tspan x="200.0" dy="24.3">Registro local simulado</tspan>
+</text>
+<path d="M 70 345 Q 200.0 345.47 330 345 Q 340 345 340 355 L 339.88 425 Q 340 435 330 435 L 70 435.49 Q 60 435 60 425 L 60.03 355 Q 60 345 70 345 Z" fill="#f1f4f8" stroke="#243047" stroke-width="1.65" stroke-linejoin="round"/>
+<path d="M 70 345 Q 200.0 345.47 330 345 Q 340 345 340 355 L 339.88 425 Q 340 435 330 435 L 70 435.49 Q 60 435 60 425 L 60.03 355 Q 60 345 70 345 Z" transform="translate(.65 .45)" fill="none" stroke="#243047" stroke-width=".45" opacity=".35"/>
+<text x="200.0" y="382.7" font-size="18" font-weight="500" text-anchor="middle" fill="#243047">
+<tspan x="200.0" dy="0">Auditor consulta</tspan>
+<tspan x="200.0" dy="24.3">Somente sua empresa</tspan>
+</text>
+<text x="60" y="956" font-size="16" font-weight="400" text-anchor="start" fill="#63718a">
+<tspan x="60" dy="0">Cada transição exige permissão e grava a auditoria junto da alteração de estado.</tspan>
+</text>
+<text x="60" y="991" font-size="16" font-weight="400" text-anchor="start" fill="#63718a">
+<tspan x="60" dy="0">Uma versão desatualizada retorna 409. Uma chave repetida preserva o registro financeiro.</tspan>
+</text>
+</g></svg>
