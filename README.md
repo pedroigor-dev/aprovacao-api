@@ -41,6 +41,8 @@ Os comandos de transição exigem a versão vista pelo cliente. Duas decisões s
 Requer Node.js 24+ e npm. O SQLite usa o módulo nativo do Node, sem instalação de banco ou chave de serviço externo.
 
 ```powershell
+git clone https://github.com/pedroigor-dev/aprovacao-api.git
+cd aprovacao-api
 npm ci
 npm run setup
 npm run build
